@@ -1,0 +1,18 @@
+/* Media queries */
+/* Target different screen resolutions here */
+
+/* EXAMPLE
+  @include bp(mobile) {
+    width: 100%;
+  }
+*/
+
+@mixin bp($point) {
+  @if $point == mobile {
+    @media (max-width: 759px) { @content; }
+  } @else if $point == tablet {
+    @media (min-width: 760px) and (max-width: 979px) { @content; }
+  } @else if $point == desktop {
+    @media (min-width: 980px) and (max-width: 1680px) { @content; }
+  }
+}

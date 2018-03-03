@@ -1,0 +1,200 @@
+/* ==========================================================================
+    GRIDLEX
+    Just a Flexbox Grid System
+========================================================================== */
+
+@import 'gridlex-vars';
+
+[class*='#{$gl-grid-name}'] {
+  box-sizing: border-box;
+  display: flex;
+  flex-flow: row wrap;
+  margin: 0 (-$gl-gutter / 2);
+  @include bp(mobile) {
+    margin: 0 (-$gl-gutter / 4);
+  }
+}
+
+.#{$gl-col-name},
+[class*='#{$gl-col-name}-'] {
+  box-sizing: border-box;
+  flex: 0 0 auto;
+  padding: 0 ($gl-gutter / 2) $gl-col-bottom;
+
+  @include bp(mobile) {
+    padding: 0 ($gl-gutter / 4)  $gl-col-bottom / 2;
+  }
+}
+
+.#{$gl-col-name} {
+  flex: 1 1 0%;
+}
+
+.#{$gl-grid-name}.#{$gl-col-name},
+.#{$gl-grid-name}[class*='#{$gl-col-name}-'] {
+  margin: 0;
+  padding: 0;
+}
+
+/************************
+    HELPERS SUFFIXES
+*************************/
+// FOR GRID
+[class*='#{$gl-grid-name}-'] {
+  // No spacing between cols : noGutter
+  &[class*='-noGutter'] {
+    margin: 0;
+
+    > [class*='#{$gl-col-name}'] {
+      padding: 0;
+    }
+  }
+
+  // Horizontal alignment
+  &[class*='-center'] {
+    justify-content: center;
+  }
+
+  &[class*='-right'] {
+    justify-content: flex-end;
+    align-self: flex-end;
+    margin-left: auto;
+  }
+
+  // Vertical alignment
+  &[class*='-top'] {
+    align-items: flex-start;
+  }
+
+  &[class*='-middle'] {
+    align-items: center;
+  }
+
+  &[class*='-bottom'] {
+    align-items: flex-end;
+  }
+
+  // Orders
+  &[class*='-reverse'] {
+    flex-direction: row-reverse;
+  }
+
+  &[class*='-column'] {
+    flex-direction: column;
+
+    > [class*='#{$gl-col-name}-'] {
+      flex-basis: auto;
+    }
+  }
+
+  &[class*='-column-reverse'] {
+    flex-direction: column-reverse;
+  }
+
+  // Spaces between and around cols
+  &[class*='-spaceBetween'] {
+    justify-content: space-between;
+  }
+
+  &[class*='-spaceAround'] {
+    justify-content: space-around;
+  }
+
+  // Equal heights columns
+  &[class*='-equalHeight'] > [class*='#{$gl-col-name}'] {
+    display: flex;
+  }
+
+  // Removes the padding-bottom
+  &[class*='-noBottom'] > [class*='#{$gl-col-name}'] {
+    padding-bottom: 0;
+  }
+}
+
+// FOR COL
+[class*='#{$gl-col-name}-' ]{
+  &[class*='-top'] {
+    align-self: flex-start;
+  }
+
+  &[class*='-middle'] {
+    align-self: center;
+  }
+
+  &[class*='-bottom'] {
+    align-self: flex-end;
+  }
+
+  &[class*='-first'] {
+    order: -1;
+  }
+
+  &[class*='-last'] {
+    order: 1;
+  }
+}
+
+/************************
+    HIDING COLS
+*************************/
+@media #{$gl-lg} {
+  [class*='#{$gl-col-name}-'][class*='_lg-0'] {
+    display: none;
+  }
+}
+@media #{$gl-md} {
+  [class*='#{$gl-col-name}-'][class*='_md-0'] {
+    display: none;
+  }
+}
+@media #{$gl-sm} {
+  [class*='#{$gl-col-name}-'][class*='_sm-0'] {
+    display: none;
+  }
+}
+@media #{$gl-xs} {
+  [class*='#{$gl-col-name}-'][class*='_xs-0'] {
+    display: none;
+  }
+}
+
+/************************
+    GRID BY NUMBER
+*************************/
+@include make-grid-by-number(#{$gl-grid-name});
+
+@media #{$gl-lg} {
+  @include make-grid-by-number(_lg);
+}
+@media #{$gl-md} {
+  @include make-grid-by-number(_md);
+}
+@media #{$gl-sm} {
+  @include make-grid-by-number(_sm);
+}
+@media #{$gl-xs} {
+  @include make-grid-by-number(_xs);
+}
+
+/************************
+    COLS SIZES
+*************************/
+@include make-col(#{$gl-col-name});
+@include make-off(off);
+
+@media #{$gl-lg} {
+  @include make-col(_lg);
+  @include make-off(_lg);
+}
+@media #{$gl-md} {
+  @include make-col(_md);
+  @include make-off(_md);
+}
+@media #{$gl-sm} {
+  @include make-col(_sm);
+  @include make-off(_sm);
+}
+@media #{$gl-xs} {
+  @include make-col(_xs);
+  @include make-off(_xs);
+}

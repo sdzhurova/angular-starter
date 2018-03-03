@@ -1,0 +1,46 @@
+@import 'variables';
+@import 'mixins';
+
+:host {
+  display: inline-block;
+  margin: 0 5px;
+  font-size: 20px;
+
+  .button {
+    padding: 13px 30px;
+    display: inline-block;
+    border-radius: 8px;
+    letter-spacing: -.0349em;
+    font-family: 'Lato';
+    position: relative;
+    cursor: pointer;
+    background-color: $primary-color;
+  }
+
+  .disabled {
+    opacity: .3;
+    pointer-events: none;
+  }
+
+  .icon-right {
+    padding: 10px 40px 10px 20px;
+
+    &::before {
+      right: 15px;
+    }
+  }
+
+  .icon-left {
+    padding: 10px 20px 10px 40px;
+
+    &::before {
+      left: 15px;
+    }
+  }
+
+  @include bp(desktop) {
+    .button {
+      padding: 15px 35px;
+    }
+  }
+}

@@ -1,0 +1,21 @@
+@import 'variables';
+@import 'mixins';
+
+:host {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  height: 100vh;
+  position: relative;
+
+  h1 {
+    align-self: center;
+    font-size: 20px;
+  }
+
+  @include bp(desktop) {
+    h1 {
+      font-size: 50px;
+    }
+  }
+}

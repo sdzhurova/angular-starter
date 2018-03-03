@@ -1,0 +1,16 @@
+@import 'reset';
+@import 'fonts';
+@import 'mixins';
+@import 'variables';
+@import 'gridlex';
+
+html,
+body {
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: $white;
+  color: $black;
+}

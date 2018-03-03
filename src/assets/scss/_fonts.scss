@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css?family=Lato:100,300&subset=latin-ext');
+@import 'variables';
+
+/* latin-ext */
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 100;
+  src: local('Lato Hairline'), local('Lato-Hairline'), url(https://fonts.gstatic.com/s/lato/v13/eFRpvGLEW31oiexbYNx7Y_esZW2xOQ-xsNqO47m55DA.woff2) format('woff2');
+  unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;
+}
+
+/* latin */
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 100;
+  src: local('Lato Hairline'), local('Lato-Hairline'), url(https://fonts.gstatic.com/s/lato/v13/GtRkRNTnri0g82CjKnEB0Q.woff2) format('woff2'),
+  url(https://fonts.gstatic.com/s/lato/v13/GtRkRNTnri0g82CjKnEB0Q.ttf) format('ttf');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+}
+
+/* latin-ext */
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Lato Light'), local('Lato-Light'), url(https://fonts.gstatic.com/s/lato/v13/dPJ5r9gl3kK6ijoeP1IRsvY6323mHUZFJMgTvxaG2iE.woff2) format('woff2');
+  unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;
+}
+
+/* latin */
+@font-face {
+  font-family: 'Lato';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Lato Light'), local('Lato-Light'), url(https://fonts.gstatic.com/s/lato/v13/EsvMC5un3kjyUhB9ZEPPwg.woff2) format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
+}
+
+/* Icon Font: https://icomoon.io */
+@font-face {
+  font-family: 'icomoon';
+  src:  url($baseUrl + '/assets/fonts/icomoon.eot?jvs95q');
+  src:  url($baseUrl + '/assets/fonts/icomoon.eot?jvs95q#iefix') format('embedded-opentype'),
+    url($baseUrl + '/assets/fonts/icomoon.ttf?jvs95q') format('truetype'),
+    url($baseUrl + '/assets/fonts/icomoon.woff?jvs95q') format('woff'),
+    url($baseUrl + '/assets/fonts/icomoon.svg?jvs95q#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[data-icon]:before { content: attr(data-icon); }
+
+[data-icon]:before,
+.ico-pencil:before,
+.ico-file-text:before,
+.ico-download:before,
+.ico-upload:before,
+.ico-search:before,
+.ico-plus:before,
+.ico-minus:before,
+.ico-cross:before,
+.ico-checkmark:before,
+.ico-arrow-up2:before,
+.ico-arrow-right2:before,
+.ico-arrow-down2:before,
+.ico-arrow-left2:before ,
+.ico-share:before {
+  display: inline-block;
+  font-family: 'icomoon';
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  line-height: 1;
+  text-decoration: inherit;
+  text-rendering: optimizeLegibility;
+  text-transform: none;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+}
+
+.ico-pencil:before {
+  content: '\e905';
+}
+.ico-file-text:before {
+  content: '\e922';
+}
+.ico-download:before {
+  content: '\e960';
+}
+.ico-upload:before {
+  content: '\e961';
+}
+.ico-search:before {
+  content: '\e986';
+}
+.ico-plus:before {
+  content: '\ea0a';
+}
+.ico-minus:before {
+  content: '\ea0b';
+}
+.ico-cross:before {
+  content: '\ea0f';
+}
+.ico-checkmark:before {
+  content: '\ea10';
+}
+.ico-arrow-up2:before {
+  content: '\ea3a';
+}
+.ico-arrow-right2:before {
+  content: '\ea3c';
+}
+.ico-arrow-down2:before {
+  content: '\ea3e';
+}
+.ico-arrow-left2:before {
+  content: '\ea40';
+}
+.ico-share:before {
+  content: '\ea7d';
+}
