@@ -3,11 +3,17 @@ $baseUrl: '';
 
 // Colors
 $white: #fff;
+$white-opacity: rgba(255, 255, 255, .6);
 $black: #000;
 $grey: #eee;
-$primary-color: rgb(160, 255, 89);
-$secondary-color: rgb(255, 234, 100);
+$primary-color: #408ace;
+$secondary-color: #f29943;
+$blue-shadow: rgba(45, 86, 140, .2);
+$blue-gradient: linear-gradient(162deg, #408ace, #2279c8);
+$orange-gradient: linear-gradient(163deg, #f2ad43, #f29943);
 
 // Animations
 $nav-toggle-duration: .25s;
 
+// Transitions
+$transition-default: 'all .25s ease',

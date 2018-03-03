@@ -1,0 +1,45 @@
+@import 'mixins';
+@import 'variables';
+
+:host {
+  display: block;
+  margin: 0 0 10px;
+
+  .filter-wrap {
+
+    .title {
+      margin: 0 0 10px;
+      font-size: 21px;
+      font-weight: 600;
+    }
+  }
+
+  .filter-list {
+    display: flex;
+
+    .filter-item {
+      margin: 0 10px 0 0;
+      font-weight: 600;
+      letter-spacing: 2px;
+
+      .filter-tag {
+        padding: 5px;
+        border: 3px solid $primary-color;
+        border-radius: 5px;
+        color: $primary-color;
+
+        &.selected,
+        &:hover {
+          color: $secondary-color;
+          border: 3px solid $secondary-color;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+
+  @include bp(desktop) {
+    margin: 0 0 30px;
+  }
+}
+

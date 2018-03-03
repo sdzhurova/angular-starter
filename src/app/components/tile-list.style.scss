@@ -1,0 +1,17 @@
+@import 'variables';
+@import 'mixins';
+
+:host {
+  display: block;
+  margin: 0 0 10px;
+
+  .tile-list-wrap {
+    position: relative;
+    overflow: hidden;
+    height: 100%;
+  }
+
+  @include bp(desktop) {
+    margin: 0 0 30px;
+  }
+}

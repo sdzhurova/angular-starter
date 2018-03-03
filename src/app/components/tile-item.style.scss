@@ -1,0 +1,92 @@
+@import 'mixins';
+@import 'variables';
+
+:host {
+  display: block;
+  margin: 0 0 20px;
+
+  .tile-item-wrap {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    flex: 1 0 0;
+    color: $white;
+    padding: 10px;
+    background-image: $blue-gradient;
+    box-shadow: 0 5px 10px 0 $blue-shadow;
+    border-radius: 5px;
+
+    .title {
+      margin: 0 0 15px;
+    }
+
+    .speed {
+      display: flex;
+      flex-direction: column;
+
+      .speed-item {
+        display: flex;
+        align-items: center;
+        margin: 0 0 10px;
+      }
+
+      .icon {
+        font-size: 24px;
+        margin: 0 10px 0 0;
+      }
+
+      .label {
+        display: none;
+      }
+    }
+
+    .benefits {
+      display: none;
+    }
+
+    .cost-wrap {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .cost {
+      font-size: 24px;
+      margin: 0 0 10px;
+    }
+  }
+
+  @include bp(tablet) {
+    .tile-item-wrap {
+      flex-direction: row;
+
+      .cost {
+        align-self: flex-end;
+      }
+    }
+  }
+
+  @include bp(desktop) {
+    .tile-item-wrap {
+      flex-direction: row;
+
+      .speed {
+        .icon {
+          font-size: 16px;
+        }
+
+        .label {
+          display: block;
+        }
+      }
+
+      .benefits {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .cost {
+        align-self: flex-end;
+      }
+    }
+  }
+}
