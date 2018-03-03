@@ -18,11 +18,13 @@
 
     .title {
       margin: 0 0 15px;
+      flex-basis: 10%;
     }
 
     .speed {
       display: flex;
       flex-direction: column;
+      flex: 1 1 100%;
 
       .speed-item {
         display: flex;
@@ -42,16 +44,26 @@
 
     .benefits {
       display: none;
-    }
+      flex: 1 1 100%;
 
-    .cost-wrap {
-      display: flex;
-      flex-direction: column;
+      .benefits-item {
+        flex-direction: row;
+      }
+
+      .icon {
+        margin: 0 10px 0 0;
+      }
     }
 
     .cost {
-      font-size: 24px;
-      margin: 0 0 10px;
+      display: flex;
+      flex-direction: column;
+
+      .cost-item {
+        font-size: 24px;
+        margin: 0 0 10px;
+        align-self: flex-end;
+      }
     }
   }
 
@@ -59,8 +71,15 @@
     .tile-item-wrap {
       flex-direction: row;
 
+      .speed,
+      .benefits {
+        flex: 1 0 0;
+      }
+
       .cost {
-        align-self: flex-end;
+        .cost-item {
+          // align-self: flex-end;
+        }
       }
     }
   }
@@ -70,6 +89,8 @@
       flex-direction: row;
 
       .speed {
+        flex: 1 0 0;
+
         .icon {
           font-size: 16px;
         }
@@ -82,10 +103,13 @@
       .benefits {
         display: flex;
         flex-direction: column;
+        flex: 1 0 0;
       }
 
       .cost {
-        align-self: flex-end;
+        .cost-item {
+          // align-self: flex-end;
+        }
       }
     }
   }

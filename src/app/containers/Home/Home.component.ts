@@ -1,71 +1,51 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { Observable } from 'rxjs/Rx';
+import { Observable, Subscription } from 'rxjs/Rx';
+import { FakeService } from '../../services/fake.service';
+import { FakeData } from '../models/fake-data.model';
 
 @Component({
   selector: 'Home',
+  providers: [FakeService],
   styleUrls: ['./Home.style.scss'],
   template: `
     <div>
       <FilterComponent [filters]="filterList"></FilterComponent>
 
-      <TileListComponent #list [list]="tariffList">
+      <TileListComponent #list [list]="offers">
         <TileItemComponent
-          *ngFor="let item of list.visibleTiles"
-          [name]="item.name"
-          [downloadSpeed]="item.downloadSpeed"
-          [uploadSpeed]="item.uploadSpeed"
-          [cost]="item.cost"
-          [benefits]="item.benefits"
-          [class.is-small]="!item.number"
-          [open-link]="['/tariff', item.id]">
+          *ngFor="let item of list.filteredOffers"
+          [name]="item.rank"
+          [downloadSpeed]="item.contractTerm.downloadSpeed.content.text"
+          [uploadSpeed]="item.contractTerm.uploadSpeed.content.text"
+          [cost]="item.cost.effectiveCost.content.text"
+          [benefits]="item.remarks"
+          [open-link]="['/tariff', item.rank]">
         </TileItemComponent>
       </TileListComponent>
+
+      <div class="red" *ngFor="let offer of offers;">
+        simona - {{offer.provider.id}}
+      </div>
     </div>
   `
 })
 export class Home implements OnInit {
-  private tariffList: any[] = [
-    {
-      id: '1',
-      name: 'name 1',
-      downloadSpeed: 'downloadSpeed',
-      uploadSpeed: 'uploadSpeed',
-      cost: 'cost',
-      benefits: [
-        'Benefit 1',
-        'Benefit 2',
-        'Benefit 3',
-      ],
-    },
-    {
-      id: '2',
-      name: 'name 2',
-      downloadSpeed: 'downloadSpeed',
-      uploadSpeed: 'uploadSpeed',
-      cost: 'cost',
-      benefits: [
-        'Benefit 1',
-        'Benefit 2',
-        'Benefit 3',
-      ],
-    },
-  ];
-
   private filterList: any[] = [
     {
       label: 'Download Speed',
-      value: '',
+      value: 'download-speed',
     }, {
       label: 'Price',
-      value: '',
+      value: 'price',
     },
   ];
+  offers: any[];
+
+  constructor(private fakeService: FakeService) { }
 
   ngOnInit() {
-    // console.log('====================================');
-    // console.log(this.tariffList);
-    // console.log('====================================');
+    this.fakeService.fetchAllData().subscribe(offers => { this.offers = offers; });
   }
 }
 

@@ -13,26 +13,24 @@ import { MediaService } from '../services/media.service';
         <div class="speed-item">
           <span class="icon ico-download"></span>
           <span class="label">Download: </span>
-          <span class="value">{{downloadSpeed}} {{mbit}}</span>
+          <span class="value">{{downloadSpeed}}</span>
         </div>
         <div class="speed-item" *ngIf="!isMobile">
           <span class="icon ico-upload"></span>
           <span class="label">Upload: </span>
-          <span class="value">{{uploadSpeed}} {{mbit}}</span>
+          <span class="value">{{uploadSpeed}}</span>
         </div>
       </div>
 
       <div class="benefits">
-        <span class="benefits" *ngFor="let item of benefits">{{item}}</span>
+        <span class="benefits-item" *ngFor="let item of benefits">
+          <span class="icon ico-checkmark" ></span>{{item.caption.text}}
+        </span>
       </div>
 
-      <div class="cost-wrap">
-        <div class="cost">{{cost}}</div>
-        <ButtonComponent
-          label="To Tariff"
-          icon={}
-        >
-        </ButtonComponent>
+      <div class="cost">
+        <div class="cost-item">{{cost}}</div>
+        <ButtonComponent label="To Tariff"></ButtonComponent>
       </div>
     </section>
     `
@@ -44,7 +42,6 @@ export class TileItemComponent {
   @Input() cost: string;
   @Input() benefits: any[];
   @Input('open-link') openLink: string;
-  mbit: string = 'Mbit/s';
   mediaViewport: any;
   isMobile: boolean;
 

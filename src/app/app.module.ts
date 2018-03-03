@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule, PreloadAllModules } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -17,13 +18,15 @@ import { PAGE_CONTAINERS } from './containers';
 
 import { APP_RESOLVER_PROVIDERS } from './app.resolver';
 import { AppState, InternalStateType } from './app.service';
-
-// import '../assets/scss/app.style.scss';
+import { MediaService } from './services/media.service';
+import { FakeService } from './services/fake.service';
 
 // Application wide providers
 const APP_PROVIDERS = [
   ...APP_RESOLVER_PROVIDERS,
-  AppState
+  AppState,
+  FakeService,
+  MediaService,
 ];
 
 interface StoreType {
@@ -53,6 +56,7 @@ interface StoreType {
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
+    HttpModule,
     HttpClientModule,
     RouterModule.forRoot(ROUTES, {
       useHash: Boolean(history.pushState) === false,

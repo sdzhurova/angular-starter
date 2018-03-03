@@ -12,7 +12,7 @@ import { Component, Input, Output, EventEmitter } from '@angular/core';
   `
 })
 export class TileListComponent {
-  visibleTiles: any[] = [];
+  filteredOffers: any[] = [];
   private _list: any[];
 
   @Input() set list(value: any[]) {
@@ -21,10 +21,10 @@ export class TileListComponent {
 
   setList(value) {
     this._list = value;
-    value.forEach((item, index) => {
-      this.visibleTiles.push(item);
-    });
 
+    value && value.forEach((item, index) => {
+      this.filteredOffers.push(item);
+    });
   }
 
   get list(): any[] {
