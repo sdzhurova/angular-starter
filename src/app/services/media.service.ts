@@ -12,7 +12,6 @@ export class MediaService {
     desktop: '(min-width: 980px)',
     ['only mobile']: '(max-width: 759px)',
     ['only tablet']: '(min-width: 760px) and (max-width: 979px)',
-    ['only desktop']: '(min-width: 980px) and (max-width: 1679px)',
   };
 
   constructor() {
