@@ -1,9 +1,11 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { MediaService } from '../services/media.service';
+
+interface IFilterItem {
+  type: any[];
+}
 
 @Component({
   selector: 'FilterComponent',
-  providers: [MediaService],
   styleUrls: [
     './filter.style.scss'
   ],
@@ -15,6 +17,7 @@ import { MediaService } from '../services/media.service';
         <li
           *ngFor="let item of filters; let i = index;"
           class="filter-item"
+          [class.disabled]="item.disabled"
           (click)="handleSort(item, i, filters, item.selected)"
         >
             <div class="filter-tag" [class.selected]="item.selected">{{item.label}}</div>
@@ -25,11 +28,10 @@ import { MediaService } from '../services/media.service';
 })
 export class FilterComponent {
   @Input('filters') filters: any[] = [];
-  @Output() onClick = new EventEmitter();
+  @Output() onChange = new EventEmitter<IFilterItem>();
 
-  constructor(private media: MediaService) { }
-
-  ngOnInit() {
+  get getType() {
+    return (this.filters || []).find(type => type.selected);
   }
 
   handleSort(element, index, array, isCurrentlySelected) {
@@ -39,7 +41,9 @@ export class FilterComponent {
         child.selected = false;
       });
 
+      // set current to selected
       element.selected = true;
     }
+    this.onChange.emit({ type: this.getType.value });
   }
 };

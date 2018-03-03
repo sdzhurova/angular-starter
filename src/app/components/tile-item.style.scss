@@ -18,7 +18,7 @@
 
     .title {
       margin: 0 0 15px;
-      flex-basis: 10%;
+      flex: 1 1 100%;
     }
 
     .speed {
@@ -71,15 +71,10 @@
     .tile-item-wrap {
       flex-direction: row;
 
+      .title,
       .speed,
       .benefits {
         flex: 1 0 0;
-      }
-
-      .cost {
-        .cost-item {
-          // align-self: flex-end;
-        }
       }
     }
   }
@@ -88,9 +83,13 @@
     .tile-item-wrap {
       flex-direction: row;
 
-      .speed {
+      .title,
+      .speed,
+      .benefits {
         flex: 1 0 0;
+      }
 
+      .speed {
         .icon {
           font-size: 16px;
         }
@@ -103,13 +102,6 @@
       .benefits {
         display: flex;
         flex-direction: column;
-        flex: 1 0 0;
-      }
-
-      .cost {
-        .cost-item {
-          // align-self: flex-end;
-        }
       }
     }
   }

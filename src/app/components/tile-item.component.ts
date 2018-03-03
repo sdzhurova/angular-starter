@@ -7,7 +7,7 @@ import { MediaService } from '../services/media.service';
   styleUrls: ['./tile-item.style.scss'],
   template: `
     <section class="tile-item-wrap">
-      <h1 class="title">{{name}}</h1>
+      <h1 class="title">{{rank}} {{name}}</h1>
 
       <div class="speed">
         <div class="speed-item">
@@ -33,9 +33,10 @@ import { MediaService } from '../services/media.service';
         <ButtonComponent label="To Tariff"></ButtonComponent>
       </div>
     </section>
-    `
+  `
 })
 export class TileItemComponent {
+  @Input() rank: string;
   @Input() name: string;
   @Input() downloadSpeed: string;
   @Input() uploadSpeed: string;
@@ -45,16 +46,11 @@ export class TileItemComponent {
   mediaViewport: any;
   isMobile: boolean;
 
-  constructor(
-    private media: MediaService,
-  ) { }
+  constructor(private media: MediaService) { }
 
   ngOnInit() {
     this.mediaViewport = this.media.platform.subscribe(value => {
       this.isMobile = (value === 'only mobile');
     });
   }
-
 }
-
-
